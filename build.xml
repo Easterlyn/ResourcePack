@@ -2,27 +2,55 @@
 	<property name="derse.dir" value="Derse" />
 	<property name="earth.dir" value="Earth" />
 	<property name="prospit.dir" value="Prospit" />
+	<property name="lofaf.dir" value="LOFAF" />
+	<property name="lohac.dir" value="LOHAC" />
+	<property name="lolar.dir" value="LOLAR" />
+	<property name="lowas.dir" value="LOWAS" />
 	<property file="custom.properties" />
 	<property name="target.dir" value="target" />
 	<property name="derse.file" value="${target.dir}/Derse.zip" />
 	<property name="earth.file" value="${target.dir}/Sblock.zip" />
 	<property name="prospit.file" value="${target.dir}/Prospit.zip" />
+	<property name="lofaf.file" value="${target.dir}/LOFAF.zip" />
+	<property name="lohac.file" value="${target.dir}/LOHAC.zip" />
+	<property name="lolar.file" value="${target.dir}/LOLAR.zip" />
+	<property name="lowas.file" value="${target.dir}/LOWAS.zip" />
 
 	<target name="clean" description="Delete old zip files">
 		<delete file="${earth.file}" />
 		<delete file="${derse.file}" />
 		<delete file="${prospit.file}" />
+		<delete file="${lofaf.file}" />
+		<delete file="${lohac.file}" />
+		<delete file="${lolar.file}" />
+		<delete file="${lowas.file}" />
 	</target>
 
 	<target name="zip" description="Create zipped resource packs for server auto-download" depends="clean">
 		<zip destfile="${earth.file}" basedir="${earth.dir}" excludes="**/sounds/music/**" />
 		<zip destfile="${derse.file}" duplicate="preserve">
 			<zipfileset dir="${derse.dir}" />
-			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/**" />
+			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/game/**" />
 		</zip>
 		<zip destfile="${prospit.file}" duplicate="preserve">
 			<zipfileset dir="${prospit.dir}" />
-			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/**" />
+			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/game/**" />
+		</zip>
+		<zip destfile="${lofaf.file}" duplicate="preserve">
+			<zipfileset dir="${lofaf.dir}" />
+			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/game/**" />
+		</zip>
+		<zip destfile="${lohac.file}" duplicate="preserve">
+			<zipfileset dir="${lohac.dir}" />
+			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/game/**" />
+		</zip>
+		<zip destfile="${lolar.file}" duplicate="preserve">
+			<zipfileset dir="${lolar.dir}" />
+			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/game/**" />
+		</zip>
+		<zip destfile="${lowas.file}" duplicate="preserve">
+			<zipfileset dir="${lowas.dir}" />
+			<zipfileset dir="${earth.dir}" excludes="**/sounds/music/game/**" />
 		</zip>
 	</target>
 
@@ -34,6 +62,22 @@
 		</zip>
 		<zip destfile="${prospit.file}" duplicate="preserve">
 			<zipfileset dir="${prospit.dir}"/>
+			<zipfileset dir="${earth.dir}"/>
+		</zip>
+		<zip destfile="${lofaf.file}" duplicate="preserve">
+			<zipfileset dir="${lofaf.dir}" />
+			<zipfileset dir="${earth.dir}"/>
+		</zip>
+		<zip destfile="${lohac.file}" duplicate="preserve">
+			<zipfileset dir="${lohac.dir}" />
+			<zipfileset dir="${earth.dir}"/>
+		</zip>
+		<zip destfile="${lolar.file}" duplicate="preserve">
+			<zipfileset dir="${lolar.dir}" />
+			<zipfileset dir="${earth.dir}"/>
+		</zip>
+		<zip destfile="${lowas.file}" duplicate="preserve">
+			<zipfileset dir="${lowas.dir}" />
 			<zipfileset dir="${earth.dir}"/>
 		</zip>
 	</target>
